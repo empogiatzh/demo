@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookReadDTO {
+public class BookDto {
     private Integer id;
     private String title;
     private String author;
@@ -21,6 +21,8 @@ public class BookReadDTO {
     private Double price;
     private Integer availability;
     private String isbn;
-    @Builder.Default
-    private List<GenreDTO> genres = new ArrayList<>();
+
+    @Builder.Default  //need this for lombok. use field initializers
+    //initialize genres to new ArrayList<>() instead of null
+    private List<GenreDto> genres = new ArrayList<>();
 }

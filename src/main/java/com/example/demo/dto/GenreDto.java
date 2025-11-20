@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GenreDTO {
+public class GenreDto {
     private Integer id;
 
     private String genre;
 
-    public GenreDTO(final String genre) {
+    public GenreDto(final String genre) {
         this.genre = genre;
     }
 }
