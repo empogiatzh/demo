@@ -4,6 +4,11 @@ package com.example.demo.controller;
 import com.example.demo.dto.BookDto;
 import com.example.demo.mappers.BookMapper;
 import com.example.demo.services.BookService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -39,6 +44,15 @@ public class BookController {
 //        Page<BookDto> books = bookService.getBooks(title, genre, author, description, minPrice, maxPrice, pageable);
 //        return ResponseEntity.ok(books);
 //    }
+
+    @Operation(summary = "Get all books")
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "This is the whole list of books",
+                    content = @Content(schema = @Schema(implementation = BookDto.class))
+            )
+    })
 
     @GetMapping("/list")
     public ResponseEntity<List<BookDto>> getBooksAsList(
