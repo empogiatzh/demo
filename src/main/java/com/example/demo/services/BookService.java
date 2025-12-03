@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 
 import com.example.demo.dto.BookDto;
+import com.example.demo.dto.MyBookDto;
 import com.example.demo.mappers.BookMapper;
 import com.example.demo.model.entity.Book;
 import com.example.demo.repository.BookRepository;
@@ -29,6 +30,13 @@ public class BookService {
         return bookRepository.findAll()
                 .stream()
                 .map(bookMapper::toDto)
+                .toList();
+    }
+
+    public List<MyBookDto> getAllMyBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(bookMapper::tomyDto)
                 .toList();
     }
 
